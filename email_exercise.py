@@ -1,9 +1,11 @@
+# Exercise Email
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-sender_email_id = 'aslamdien90@gmail.com'
-receiver_email_id = ['thapelo@lifechoices.co.za', 'sithandathuzipho@gmail.com', 'alamdien90@gmail.com']
+# Structur Of Email
+sender_email_id = 'aslamdien90@gmail.com' # Senders Address
+receiver_email_id = ['thapelo@lifechoices.co.za', 'sithandathuzipho@gmail.com', 'alamdien90@gmail.com']# Receivers Address
 password = input("Enter Your Password: ")
 subject = "Greetings"
 msg = MIMEMultipart()
@@ -16,11 +18,13 @@ msg.attach(MIMEText(body, 'plain'))
 
 text = msg.as_string()
 s = smtplib.SMTP('smtp.gmail.com', 587)
-
+# Start TLS for security
 s.starttls()
-
+ #Authentication
 s.login(sender_email_id, password)
+# message to be saved
 
+# sending the mall
 s.sendmail(sender_email_id, receiver_email_id, text)
-
+# terminating the season
 s.quit()
